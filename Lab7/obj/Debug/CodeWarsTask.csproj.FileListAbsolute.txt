@@ -1,0 +1,6 @@
+/home/alexander/RiderProjects/test/CodeWarsTask/bin/Debug/CodeWarsTask.exe
+/home/alexander/RiderProjects/test/CodeWarsTask/bin/Debug/CodeWarsTask.pdb
+/home/alexander/RiderProjects/test/CodeWarsTask/obj/Debug/CodeWarsTask.csproj.AssemblyReference.cache
+/home/alexander/RiderProjects/test/CodeWarsTask/obj/Debug/CodeWarsTask.csproj.CoreCompileInputs.cache
+/home/alexander/RiderProjects/test/CodeWarsTask/obj/Debug/CodeWarsTask.exe
+/home/alexander/RiderProjects/test/CodeWarsTask/obj/Debug/CodeWarsTask.pdb
