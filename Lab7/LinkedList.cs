@@ -11,7 +11,7 @@ namespace Lab7
             head = null;
         }
 
-        public Node<T> GetHead()
+        private Node<T> GetHead()
         {
             return head;
         }
