@@ -161,7 +161,7 @@ namespace Lab7
         private static void RemoveElementsLessThanAvg(LinkedList<short> list)
         {
             double avg = GetAverage(list);
-            Console.WriteLine(avg);
+            Console.WriteLine($"Average: {avg}");
             int index = 0;
 
             while (list.Length() > index)
