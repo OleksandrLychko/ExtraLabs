@@ -71,9 +71,9 @@ namespace Lab7
                 @"Choose option:
 1- Add element
 2- Find first multiple of 3
-3- Find product of elements less than the mean
-4- New list of elements divisible by three
-5- Remove elements greater than the mean
+3- Find product of elements less than the average
+4- New list of elements divisible by 3
+5- Remove elements greater than the average
 6- Exit");
         }
 
