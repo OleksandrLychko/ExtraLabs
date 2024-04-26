@@ -15,8 +15,7 @@ namespace Lab7
         {
             return head;
         }
-
-
+        
         public void InsertAtBeginning(T data)
         {
             Node<T> newNode = new Node<T>(data);
