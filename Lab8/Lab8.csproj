@@ -9,7 +9,7 @@
         <OutputType>Exe</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>ExtraLab8</RootNamespace>
-        <AssemblyName>ExtraLab8</AssemblyName>
+        <AssemblyName>Lab8</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

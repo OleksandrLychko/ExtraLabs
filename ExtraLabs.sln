@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab7", "Lab7\Lab7.csproj", "{ECCD6F22-B8E9-45C3-9454-A63ACB25DC30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtraLab8", "ExtraLab8\ExtraLab8.csproj", "{D5885A93-53F7-4603-A8BE-B739B816151F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab8", "Lab8\Lab8.csproj", "{D5885A93-53F7-4603-A8BE-B739B816151F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
