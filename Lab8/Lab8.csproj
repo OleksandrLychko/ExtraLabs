@@ -8,7 +8,7 @@
         <ProjectGuid>{D5885A93-53F7-4603-A8BE-B739B816151F}</ProjectGuid>
         <OutputType>Exe</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>ExtraLab8</RootNamespace>
+        <RootNamespace>Lab8</RootNamespace>
         <AssemblyName>Lab8</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>

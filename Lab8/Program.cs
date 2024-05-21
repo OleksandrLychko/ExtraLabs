@@ -6,7 +6,7 @@ namespace Lab8
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("sfgdf");
+            
         }
     }
 }
