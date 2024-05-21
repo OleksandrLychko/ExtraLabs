@@ -1,0 +1,6 @@
+/home/alexander/RiderProjects/test/ExtraLab8/bin/Debug/ExtraLab8.exe
+/home/alexander/RiderProjects/test/ExtraLab8/bin/Debug/ExtraLab8.pdb
+/home/alexander/RiderProjects/test/ExtraLab8/obj/Debug/ExtraLab8.csproj.AssemblyReference.cache
+/home/alexander/RiderProjects/test/ExtraLab8/obj/Debug/ExtraLab8.csproj.CoreCompileInputs.cache
+/home/alexander/RiderProjects/test/ExtraLab8/obj/Debug/ExtraLab8.exe
+/home/alexander/RiderProjects/test/ExtraLab8/obj/Debug/ExtraLab8.pdb

@@ -2,7 +2,7 @@ using System;
 
 namespace Lab7
 {
-    public class LinkedList<T> : System.Collections.Generic.LinkedList<T>
+    public class LinkedList<T> 
     {
         private Node<T> head;
 
