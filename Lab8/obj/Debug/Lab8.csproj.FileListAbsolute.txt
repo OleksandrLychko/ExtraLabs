@@ -1,0 +1,6 @@
+/home/alexander/RiderProjects/test/Lab8/bin/Debug/Lab8.exe
+/home/alexander/RiderProjects/test/Lab8/bin/Debug/Lab8.pdb
+/home/alexander/RiderProjects/test/Lab8/obj/Debug/Lab8.csproj.AssemblyReference.cache
+/home/alexander/RiderProjects/test/Lab8/obj/Debug/Lab8.csproj.CoreCompileInputs.cache
+/home/alexander/RiderProjects/test/Lab8/obj/Debug/Lab8.exe
+/home/alexander/RiderProjects/test/Lab8/obj/Debug/Lab8.pdb

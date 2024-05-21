@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExtraLab8
+namespace Lab8
 {
     internal class Program
     {
