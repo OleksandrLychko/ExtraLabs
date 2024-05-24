@@ -32,6 +32,12 @@ namespace Lab8
                 return;
             }
 
+            if (FindUserById(id).DocumentsLanded.Count != 0)
+            {
+                Console.WriteLine("User cannot be removed, they still have lended documents");
+                return;
+            }
+
             _users.Remove(FindUserById(id));
         }
 
@@ -216,6 +222,11 @@ Group: {currentUser.Group}");
             {
                 Console.WriteLine("No document found");
                 return;
+            }
+
+            if (currentDoc.Status == "lended out")
+            {
+                Console.WriteLine("Document cannot be removed, it is lended out now");
             }
 
             _documents.Remove(currentDoc);

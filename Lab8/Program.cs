@@ -5,7 +5,7 @@ namespace Lab8
 {
     internal class Program
     {
-        static readonly Library Library = new Library();
+        private static readonly Library Library = new Library();
         
         public static void Main(string[] args)
         {
