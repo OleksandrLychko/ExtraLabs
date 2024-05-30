@@ -6,10 +6,10 @@ namespace Lab8
 {
     public class Library
     {
-        public readonly List<Client> _clients = new List<Client>();
+        public readonly List<Client> Clients = new List<Client>();
         private readonly List<Employee> _employees = new List<Employee>();
         private readonly List<Document> _documents = new List<Document>();
-        public readonly List<Request> _requests = new List<Request>();
+        public readonly List<Request> Requests = new List<Request>();
 
         public void AddEmployee(string firstName, string lastName, int id)
         {
@@ -19,7 +19,7 @@ namespace Lab8
         
         public void AddClient(string firstName, string lastName, string group, int id)
         {
-            foreach (Client client in _clients)
+            foreach (Client client in Clients)
             {
                 if (client.Id == id)
                 {
@@ -29,7 +29,7 @@ namespace Lab8
             }
 
             Client newClient = new Client(firstName, lastName, group, id);
-            _clients.Add(newClient);
+            Clients.Add(newClient);
         }
 
         public void RemoveClient(int id)
@@ -46,7 +46,7 @@ namespace Lab8
                 return;
             }
 
-            _clients.Remove(FindClientById(id));
+            Clients.Remove(FindClientById(id));
         }
 
         public void ChangeClientInfo(int id)
@@ -92,7 +92,7 @@ Group: {currentClient.Group}");
 
         public void DisplayAllClients()
         {
-            if (_clients.Count == 0)
+            if (Clients.Count == 0)
             {
                 Console.WriteLine("No users registered");
                 return;
@@ -106,7 +106,7 @@ Group: {currentClient.Group}");
             SortUsers(sortOption);
 
             Console.WriteLine("Users registered:");
-            foreach (Client user in _clients)
+            foreach (Client user in Clients)
             {
                 Console.WriteLine($"User id: {user.Id}; {user.Firstname} {user.Lastname}, group {user.Group}");
             }
@@ -114,7 +114,7 @@ Group: {currentClient.Group}");
 
         public Client FindClientById(int id)
         {
-            foreach (Client client in _clients)
+            foreach (Client client in Clients)
             {
                 if (client.Id == id)
                 {
@@ -189,7 +189,7 @@ Group: {currentClient.Group}");
 
         public void ClientKeywordSearch(string keyword)
         {
-            foreach (Client user in _clients)
+            foreach (Client user in Clients)
             {
                 if (user.Firstname.Contains(keyword) || user.Lastname.Contains(keyword))
                 {
@@ -291,15 +291,15 @@ Group: {currentClient.Group}");
             switch (option)
             {
                 case "1":
-                    _clients.Sort((user1, user2) =>
+                    Clients.Sort((user1, user2) =>
                         String.Compare(user1.Firstname, user2.Firstname, StringComparison.Ordinal));
                     break;
                 case "2":
-                    _clients.Sort((user1, user2) =>
+                    Clients.Sort((user1, user2) =>
                         String.Compare(user1.Lastname, user2.Lastname, StringComparison.Ordinal));
                     break;
                 case "3":
-                    _clients.Sort((user1, user2) => 
+                    Clients.Sort((user1, user2) => 
                         String.Compare(user1.Group, user2.Group, StringComparison.Ordinal));
                     break;
                 default:
@@ -370,7 +370,7 @@ Group: {currentClient.Group}");
         {
             int count = 0;
             Console.WriteLine("Five latest requests: ");
-            foreach (Request request in _requests)
+            foreach (Request request in Requests)
             {
                 if (count == 5)
                 {

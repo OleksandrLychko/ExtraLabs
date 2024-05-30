@@ -36,7 +36,7 @@ namespace Lab8
                         {
                             Console.WriteLine("No such document in library");
                             newRequest.Response = "not found";
-                            library._requests.Add(newRequest);
+                            library.Requests.Add(newRequest);
                             break;
                         }
 
@@ -44,13 +44,13 @@ namespace Lab8
                         {
                             Console.WriteLine("Document is in stock");
                             newRequest.Response = currentDoc.Status;
-                            library._requests.Add(newRequest);
+                            library.Requests.Add(newRequest);
                             break;
                         }
 
                         Console.WriteLine("Document is now lended out");
                         newRequest.Response = currentDoc.Status;
-                        library._requests.Add(newRequest);
+                        library.Requests.Add(newRequest);
                         break;
                     case "0":
                         _option = "";

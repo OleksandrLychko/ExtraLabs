@@ -57,7 +57,7 @@ namespace Lab8
                     case "2":
                         Console.WriteLine("Enter your firstname, lastname and group separated with space:");
                         string[] input = Console.ReadLine()?.Split().ToArray();
-                        for (int i = 1; i <= Library._clients.Count + 1; i++)
+                        for (int i = 1; i <= Library.Clients.Count + 1; i++)
                         {
                             if (Library.FindClientById(i) == null)
                             {
