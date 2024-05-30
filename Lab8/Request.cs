@@ -2,7 +2,7 @@ namespace Lab8
 {
     public class Request
     {
-        public string DocName;
+        public readonly string DocName;
         public string Response;
         
         public Request(string docName)
