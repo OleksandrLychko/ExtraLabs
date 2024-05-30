@@ -6,45 +6,53 @@ namespace Lab8
 {
     public class Library
     {
-        private readonly List<User> _users = new List<User>();
+        public readonly List<Client> _clients = new List<Client>();
+        private readonly List<Employee> _employees = new List<Employee>();
         private readonly List<Document> _documents = new List<Document>();
+        public readonly List<Request> _requests = new List<Request>();
 
-        public void AddUser(string firstName, string lastName, int group, int id)
+        public void AddEmployee(string firstName, string lastName, int id)
         {
-            for (int i = 0; i < _users.Count; i++)
+            Employee newEmployee = new Employee(firstName, lastName, id);
+            _employees.Add(newEmployee);
+        }
+        
+        public void AddClient(string firstName, string lastName, string group, int id)
+        {
+            foreach (Client client in _clients)
             {
-                if (_users[i].Id == id)
+                if (client.Id == id)
                 {
                     Console.WriteLine($"User with id {id} already exists");
                     return;
                 }
             }
 
-            User user = new User(firstName, lastName, group, id);
-            _users.Add(user);
+            Client newClient = new Client(firstName, lastName, group, id);
+            _clients.Add(newClient);
         }
 
-        public void RemoveUser(int id)
+        public void RemoveClient(int id)
         {
-            if (FindUserById(id) == null)
+            if (FindClientById(id) == null)
             {
                 Console.WriteLine($"No user with id {id} was found");
                 return;
             }
 
-            if (FindUserById(id).DocumentsLanded.Count != 0)
+            if (FindClientById(id).DocumentsLended.Count != 0)
             {
                 Console.WriteLine("User cannot be removed, they still have lended documents");
                 return;
             }
 
-            _users.Remove(FindUserById(id));
+            _clients.Remove(FindClientById(id));
         }
 
-        public void ChangeUserInfo(int id)
+        public void ChangeClientInfo(int id)
         {
-            User currentUser = FindUserById(id);
-            if (currentUser == null)
+            Client currentClient = FindClientById(id);
+            if (currentClient == null)
             {
                 Console.WriteLine($"No user with id {id} was found");
                 return;
@@ -52,39 +60,39 @@ namespace Lab8
 
             Console.WriteLine("Enter new firstname, lastname, group and id separated with space: ");
             string[] input = Console.ReadLine()?.Split().ToArray();
-            currentUser.RewriteInfo(input?[0], input?[1], Convert.ToInt32(input?[2]), Convert.ToInt32(input?[3]));
+            currentClient.RewriteInfo(input?[0], input?[1], input?[2], Convert.ToInt32(input?[3]));
         }
 
-        public void ViewUserInfo(int id)
+        public void ViewClientInfo(int id)
         {
-            User currentUser = FindUserById(id);
+            Client currentClient = FindClientById(id);
 
-            if (currentUser == null)
+            if (currentClient == null)
             {
                 Console.WriteLine($"No user with id {id} was found");
                 return;
             }
 
             Console.WriteLine($@"<<<{id}>>>
-Firstname: {currentUser.Firstname}
-Lastname: {currentUser.Lastname}
-Group: {currentUser.Group}");
-            if (currentUser.DocumentsLanded.Count == 0)
+Firstname: {currentClient.Firstname}
+Lastname: {currentClient.Lastname}
+Group: {currentClient.Group}");
+            if (currentClient.DocumentsLended.Count == 0)
             {
                 Console.WriteLine("No documents landed out");
                 return;
             }
 
             Console.WriteLine("Landed out documents:");
-            foreach (Document document in currentUser.DocumentsLanded)
+            foreach (Document document in currentClient.DocumentsLended)
             {
                 Console.WriteLine(document.Name);
             }
         }
 
-        public void DisplayAllUsers()
+        public void DisplayAllClients()
         {
-            if (_users.Count == 0)
+            if (_clients.Count == 0)
             {
                 Console.WriteLine("No users registered");
                 return;
@@ -98,33 +106,33 @@ Group: {currentUser.Group}");
             SortUsers(sortOption);
 
             Console.WriteLine("Users registered:");
-            foreach (User user in _users)
+            foreach (Client user in _clients)
             {
                 Console.WriteLine($"User id: {user.Id}; {user.Firstname} {user.Lastname}, group {user.Group}");
             }
         }
 
-        private User FindUserById(int id)
+        public Client FindClientById(int id)
         {
-            for (int i = 0; i < _users.Count; i++)
+            foreach (Client client in _clients)
             {
-                if (_users[i].Id == id)
+                if (client.Id == id)
                 {
-                    return _users[i];
+                    return client;
                 }
             }
 
             return null;
         }
 
-        public void ManageUserLending()
+        public void ManageClientLending()
         {
             Console.Write("Enter user id: ");
             int inputId = Convert.ToInt32(Console.ReadLine());
 
-            User currentUser = FindUserById(inputId);
+            Client currentClient = FindClientById(inputId);
 
-            if (currentUser == null)
+            if (currentClient == null)
             {
                 Console.WriteLine($"No user with id {inputId} was found");
                 return;
@@ -133,7 +141,7 @@ Group: {currentUser.Group}");
             Console.WriteLine(@"Choose option:
 1 to lend out  
 2 to receive the document
-3 to return");
+0 to return");
             string option = Console.ReadLine();
             switch (option)
             {
@@ -148,14 +156,14 @@ Group: {currentUser.Group}");
                         return;
                     }
 
-                    if (currentUser.DocumentsLanded.Count >= 5)
+                    if (currentClient.DocumentsLended.Count >= 5)
                     {
                         Console.WriteLine("Lended limit for user is reached");
                         return;
                     }
 
-                    currentUser.LendOutDocument(currentDoc);
-                    currentDoc.OwnerId = currentUser.Id;
+                    currentClient.LendOutDocument(currentDoc);
+                    currentDoc.OwnerId = currentClient.Id;
                     break;
                 case "2":
                     Console.Write("Enter document name: ");
@@ -168,10 +176,10 @@ Group: {currentUser.Group}");
                         return;
                     }
 
-                    currentUser.ReturnDocument(currentDoc);
+                    currentClient.ReturnDocument(currentDoc);
                     currentDoc.OwnerId = -1;
                     break;
-                case "3":
+                case "0":
                     return;
                 default:
                     Console.WriteLine("Invalid option");
@@ -179,9 +187,9 @@ Group: {currentUser.Group}");
             }
         }
 
-        public void UserKeywordSearch(string keyword)
+        public void ClientKeywordSearch(string keyword)
         {
-            foreach (User user in _users)
+            foreach (Client user in _clients)
             {
                 if (user.Firstname.Contains(keyword) || user.Lastname.Contains(keyword))
                 {
@@ -265,13 +273,13 @@ Group: {currentUser.Group}");
             }
         }
 
-        private Document FindDocumentByName(string name)
+        public Document FindDocumentByName(string name)
         {
-            for (int i = 0; i < _documents.Count; i++)
+            foreach (Document document in _documents)
             {
-                if (_documents[i].Name == name)
+                if (document.Name == name)
                 {
-                    return _documents[i];
+                    return document;
                 }
             }
 
@@ -283,15 +291,16 @@ Group: {currentUser.Group}");
             switch (option)
             {
                 case "1":
-                    _users.Sort((user1, user2) =>
+                    _clients.Sort((user1, user2) =>
                         String.Compare(user1.Firstname, user2.Firstname, StringComparison.Ordinal));
                     break;
                 case "2":
-                    _users.Sort((user1, user2) =>
+                    _clients.Sort((user1, user2) =>
                         String.Compare(user1.Lastname, user2.Lastname, StringComparison.Ordinal));
                     break;
                 case "3":
-                    _users.Sort((user1, user2) => user1.Group.CompareTo(user2.Group));
+                    _clients.Sort((user1, user2) => 
+                        String.Compare(user1.Group, user2.Group, StringComparison.Ordinal));
                     break;
                 default:
                     Console.WriteLine("Invalid option");
@@ -341,6 +350,34 @@ Group: {currentUser.Group}");
                 default:
                     Console.WriteLine("Invalid option");
                     return;
+            }
+        }
+
+        public Employee FindEmployeeById(int id)
+        {
+            foreach (Employee employee in _employees)
+            {
+                if (employee.Id == id)
+                {
+                    return employee;
+                }
+            }
+
+            return null;
+        }
+
+        public void ViewRequests()
+        {
+            int count = 0;
+            Console.WriteLine("Five latest requests: ");
+            foreach (Request request in _requests)
+            {
+                if (count == 5)
+                {
+                    return;
+                }
+                count++;
+                Console.WriteLine($"Asked about: {request.DocName}. Response: {request.Response}");
             }
         }
     }
