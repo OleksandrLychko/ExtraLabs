@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Lab8
 {
-    internal class Program
+    internal class MainMenu
     {
         private static readonly Library Library = new Library();
         private static string _option = "";
@@ -28,10 +28,10 @@ namespace Lab8
             Library.AddDocument("Doc9", "Author4");
             Library.AddDocument("Doc7", "Author3");
             
-            MainMenu();
+            MainMenuOptions();
         }
 
-        private static void MainMenu()
+        private static void MainMenuOptions()
         {
             while (_option != "0")
             {
